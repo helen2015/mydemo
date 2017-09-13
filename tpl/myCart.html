@@ -1,0 +1,29 @@
+<ion-header-bar align-title="center">
+    <h1 class="title">购物车</h1>
+    <button
+            class="button button-clear button-dark">编辑</button>
+</ion-header-bar>
+
+<ion-content>
+    <h3 class="text-center">我的购物车</h3>
+    <div class="list list-inset">
+        <div class="item" ng-repeat="detail in cartList">
+            <div class="row row-center">
+                <div class="col col-20">
+                    <img ng-src="img/{{detail.img_sm}}"/>
+                </div>
+                <div class="col">
+                    <h2>{{detail.name}}</h2>
+                    <p>{{detail.dishCount+" X "+detail.price}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <p style="display: inline-block">合计：30</p>
+            <button style="display: inline-block"
+                    class="button button-balanced button-small">立即下单</button>
+        </div>
+    </div>
+</ion-content>
+
+<div ng-include="'tpl/include/footer.html'"></div>

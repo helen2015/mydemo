@@ -1,0 +1,16 @@
+
+<!--通过tabs来实现一个在页面底部的充当导航作用的标签页-->
+<ion-tabs class="tabs-icon-top">
+  <ion-tab title="主页"
+           ng-click="jump('kflStart')"
+           icon="ion-home"></ion-tab>
+  <ion-tab title="个人中心"
+           on-select="jump('kflMyOrder')"
+           icon="ion-person"></ion-tab>
+  <ion-tab title="购物车"
+           on-select="jump('kflCart')"
+           icon="ion-bag"></ion-tab>
+  <ion-tab title="设置"
+           on-select="jump('kflSettings')"
+           icon="ion-gear-a"></ion-tab>
+</ion-tabs>

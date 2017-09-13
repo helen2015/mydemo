@@ -1,0 +1,49 @@
+
+<div ng-include="'tpl/include/header.html'"></div>
+
+<ion-content class="has-header has-footer">
+
+  <!-- 显示一个表单：是通过list和item的管理
+  在ionic的表单中，关于label的显示一共有四种方式:
+  placeholder labels
+  inline labels
+  stacked labels
+  floating labels
+  -->
+  <!--//uName\uAddr\uPhone\uSex\did-->
+  <div class="list list-inset" ng-if="!result">
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">用户名</span>
+      <input type="text" placeholder="请输入用户名" ng-model="myInput.uName"/>
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">送餐地址</span>
+      <input type="text" placeholder="请输入配送地址" ng-model="myInput.uAddr"/>
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">电话</span>
+      <input type="text" placeholder="请输入联系电话" ng-model="myInput.uPhone"/>
+    </label>
+    <label class="item">
+      <span class="input-label">选择性别</span>
+    </label>
+    <ion-list>
+      <ion-radio value="1" name="sex" ng-model="myInput.uSex">男</ion-radio>
+      <ion-radio value="2" name="sex" ng-model="myInput.uSex">女</ion-radio>
+    </ion-list>
+
+    <button ng-click="submitOrder()"
+      class="button button-balanced button-block">
+      立即下单
+    </button>
+
+  </div>
+  <div class="card" ng-if="result">
+    <div class="item">
+      {{result}}
+    </div>
+  </div>
+
+</ion-content>
+
+<div ng-include="'tpl/include/footer.html'"></div>

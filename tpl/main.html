@@ -1,0 +1,49 @@
+
+<!--页头-->
+<div ng-include="'tpl/include/header.html'"></div>
+
+<ion-content class="has-header has-footer">
+  <!--搜索框-->
+  <div class="list list-inset">
+    <div class="item item-input">
+      <input type="text"
+             ng-model="myInput.kw"
+             placeholder="请输入原材料或者菜品的名称"/>
+      <i class="icon ion-search"></i>
+    </div>
+  </div>
+  <!--<button ui-sref="myMain({uName:'Reese'})"-->
+  <!--缩略图列表-->
+  <div class="list list-inset">
+    <a ui-sref="kflDetail({id:dish.did})"
+       ng-repeat="dish in dishList"
+       class="item item-thumbnail-left">
+      <img ng-src="img/{{dish.img_sm}}" alt=""/>
+      <h2>{{dish.name}}</h2>
+      <p>{{dish.material}}</p>
+      <p>{{dish.price}}</p>
+    </a>
+
+    <!--加载更多的按钮-->
+    <!--<button
+      ng-show="hasMore"
+      ng-click="loadMore()"
+      class="button button-balanced button-block">
+      加载更多
+    </button>-->
+
+    <p ng-hide="hasMore">没有更多数据可以加载了</p>
+
+    <!--ionic中基于ng封装的自定义指令，可以实现一个
+    无限滚动的效果：滚动到底部，就可以自动加载数据-->
+    <ion-infinite-scroll
+            ng-if="hasMore"
+            on-infinite="loadMore()">
+
+    </ion-infinite-scroll>
+
+  </div>
+</ion-content>
+
+<!--页尾-->
+<div ng-include="'tpl/include/footer.html'"></div>
